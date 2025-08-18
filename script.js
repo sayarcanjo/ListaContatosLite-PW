@@ -1,4 +1,3 @@
-// Classe para representar um contato
 class Contato {
     constructor(nome, email, telefone) {
         this._nome = nome;
@@ -6,12 +5,10 @@ class Contato {
         this._telefone = telefone;
     }
 
-    // Getters
     get nome() { return this._nome; }
     get email() { return this._email; }
     get telefone() { return this._telefone; }
 
-    // Setters com validação mínima
     set nome(valor) {
         if (valor.trim() === '') throw new Error('Nome não pode ser vazio');
         this._nome = valor;
@@ -26,10 +23,8 @@ class Contato {
     }
 }
 
-// Array para armazenar contatos
 let contatos = [];
 
-// Função para carregar contatos do localStorage
 function carregarContatos() {
     try {
         const dados = localStorage.getItem('contatos');
@@ -42,7 +37,6 @@ function carregarContatos() {
     }
 }
 
-// Função para salvar contatos no localStorage
 function salvarContatos() {
     try {
         localStorage.setItem('contatos', JSON.stringify(contatos));
@@ -51,15 +45,16 @@ function salvarContatos() {
     }
 }
 
-// Função para adicionar um novo contato
 function adicionarContato(event) {
-    event.preventDefault(); // Impede o recarregamento da página
+    event.preventDefault();
     const form = event.target;
-    const nome = form.nome.value;
-    const email = form.email.value;
-    const telefone = form.telefone.value;
+    const nome = form.nome.value.trim();
+    const email = form.email.value.trim();
+    const telefone = form.telefone.value.trim();
     try {
-        console.log('Tentando adicionar contato:', { nome, email, telefone }); // Depuração
+        if (!nome || !email || !telefone) {
+            throw new Error('Todos os campos devem ser preenchidos');
+        }
         const contato = new Contato(nome, email, telefone);
         contatos.push(contato);
         salvarContatos();
@@ -72,10 +67,9 @@ function adicionarContato(event) {
     }
 }
 
-// Função para remover um contato
 function removerContato(index) {
     try {
-        console.log('Removendo contato no índice:', index); // Depuração
+        console.log('Removendo contato no índice:', index);
         contatos.splice(index, 1);
         salvarContatos();
         listarContatos();
@@ -84,7 +78,6 @@ function removerContato(index) {
     }
 }
 
-// Função para listar contatos na tabela
 function listarContatos() {
     try {
         const tbody = document.getElementById('tabela-contatos');
@@ -98,17 +91,16 @@ function listarContatos() {
                 <td>${contato.nome}</td>
                 <td>${contato.email}</td>
                 <td>${contato.telefone}</td>
-                <td><button onclick="removerContato(${index})">Excluir</button></td>
+                <td><button class="excluir" onclick="removerContato(${index})">Excluir</button></td>
             `;
             tbody.appendChild(tr);
         });
-        console.log('Contatos listados:', contatos); // Depuração
+        console.log('Contatos listados:', contatos);
     } catch (e) {
         console.error('Erro ao listar contatos:', e);
     }
 }
 
-// Inicialização
 document.addEventListener('DOMContentLoaded', () => {
     try {
         const form = document.getElementById('form-contato');
