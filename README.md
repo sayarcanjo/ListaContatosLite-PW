@@ -56,7 +56,12 @@ Pronto! A aplicação estará funcionando.
 
 ## ✒️ Autor
 
-Desenvolvido por **[Sayonara Arcanjo da Silva]**.
+Desenvolvido por:
+
+**Sayonara Arcanjo da Silva - [2023011107]**
+**Gustavo Reinaldo - [2023010997]**
+**Carlos Eduardo - [2023010629]**
+**Alexandra de Paula  - [2023018832]**
 
 
 ## 📄 Licença
