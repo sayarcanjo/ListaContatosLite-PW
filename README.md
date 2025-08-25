@@ -5,6 +5,11 @@
 
 Um projeto de front-end para gerenciar uma lista de contatos pessoal. A aplicação permite adicionar, visualizar e excluir contatos, com todos os dados salvos diretamente no navegador do usuário através do `localStorage`.
 
+<div align="center">
+  <img width="500" height="500" alt="LCL" src="https://github.com/user-attachments/assets/1a524096-bf79-4cfb-bdce-f4255b3e854c" />
+</div>
+
+
 ## 📖 Índice
 
 * [Funcionalidades](#-funcionalidades)
@@ -59,8 +64,11 @@ Pronto! A aplicação estará funcionando.
 Desenvolvido por:
 
 **Sayonara Arcanjo da Silva - [2023011107]**
+
 **Gustavo Reinaldo - [2023010997]**
+
 **Carlos Eduardo - [2023010629]**
+
 **Alexandra de Paula  - [2023018832]**
 
 
